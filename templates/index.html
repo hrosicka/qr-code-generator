@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <form method="post" class="qr-form">
+            <label for="url">URL:</label><br>
+            <input type="text" id="url" name="url" placeholder="Enter URL address" title="Please enter a valid URL" required><br><br>
+            <button type="submit">Generate QR Code</button>
+        </form>
+    </div>
+</body>
+</html>
