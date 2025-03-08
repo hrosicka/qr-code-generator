@@ -49,3 +49,13 @@ body {
 .qr-form button:hover {
     background-color: #0056b3;
 }
+
+.qr-code-display {
+    text-align: center; /* Zarovnání obsahu na střed */
+    margin-top: 20px;
+}
+
+.qr-code-display img {
+    display: block; /* Zajistí, že obrázek bude blokový prvek */
+    margin: 0 auto; /* Centrování obrázku */
+}
