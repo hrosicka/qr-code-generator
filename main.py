@@ -1,12 +1,13 @@
-from flask import Flask, render_template, request, send_file, url_for #doplnění url_for
+from flask import Flask, render_template, request, send_file, url_for
 import qrcode
 from io import BytesIO
+import base64
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    qr_code_image = None
+    qr_code_base64 = None
     if request.method == 'POST':
         url = request.form['url']
         qr = qrcode.QRCode(
@@ -22,11 +23,11 @@ def index():
         img_io = BytesIO()
         img.save(img_io, 'PNG')
         img_io.seek(0)
-        qr_code_image = img_io
 
-        return send_file(img_io, mimetype='image/png')
+        # Převod obrázku na base64 pro zobrazení v HTML
+        qr_code_base64 = base64.b64encode(img_io.getvalue()).decode('utf-8')
 
-    return render_template('index.html')
+    return render_template('index.html', qr_code_base64=qr_code_base64)
 
 if __name__ == '__main__':
     app.run(debug=True)

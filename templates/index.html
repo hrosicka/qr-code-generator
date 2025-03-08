@@ -12,6 +12,15 @@
             <input type="text" id="url" name="url" placeholder="Enter URL address" title="Please enter a valid URL" required><br><br>
             <button type="submit">Generate QR Code</button>
         </form>
+
+        {% if qr_code_base64 %}
+            <div class="qr-code-display">
+                <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
+                <div style="text-align: center; margin-top: 10px;">
+                    <a href="data:image/png;base64,{{ qr_code_base64 }}" download="qrcode.png">Download QR Code</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
