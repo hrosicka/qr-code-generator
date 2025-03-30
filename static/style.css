@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -8,9 +8,9 @@ body {
     margin: 0;
 }
 
-.h1 {
-    text-align: center;
-    margin-bottom: 20px;
+h1 {
+    text-align: left;
+    margin-bottom: 18px;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 500px;
 }
 
 .qr-form {
@@ -32,30 +32,54 @@ body {
 
 .qr-form input[type="text"] {
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
 .qr-form button {
-    padding: 10px 20px;
+    padding: 8px 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    align-self: flex-end;
 }
 
 .qr-form button:hover {
-    background-color: #0056b3;
+    background-color: #5d0a60;
 }
 
 .qr-code-display {
-    text-align: center; /* Zarovnání obsahu na střed */
+    text-align: center;
     margin-top: 20px;
+    display: flex; /* Enable flexbox for label and frame positioning */
+    align-items: center; /* Vertically center label and frame */
 }
 
 .qr-code-display img {
-    display: block; /* Zajistí, že obrázek bude blokový prvek */
-    margin: 0 auto; /* Centrování obrázku */
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-code-placeholder {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-code-frame {
+    border: 2px solid #7e8083;
+    display: inline-block;
+    border-radius: 4px;
+    border-width: 5px;
+}
+
+.qr-code-label {
+    text-align: start;
+    font-size: 16px;
+    transform: rotate(-90deg); /* Rotate the text */
+    white-space: nowrap; /* Prevent text wrapping */
+    margin-bottom: 0; /* Remove bottom margin */
 }
