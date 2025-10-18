@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>QR Code Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional QR Code Generator</title>
+    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load the specified font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Create a QR code in seconds!</h1>
+        <h1>Create a QR Code in Seconds!</h1>
+
         <form method="post" class="qr-form">
-            <label for="url">Website URL</label><br>
-            <input type="text" id="url" name="url" placeholder="Enter URL address" title="Please enter a valid URL" required><br><br>
-            <button type="submit">Generate QR Code</button>
+            <label for="url">Website URL or Text</label>
+            <input type="text" id="url" name="url" placeholder="Enter URL or any text to encode" 
+                   title="Please enter data to be encoded" required
+                   value="{{ request.form.url if request.form.url else '' }}">
+            <button type="submit" class="button-primary">Generate QR Code</button>
         </form>
 
         <div class="qr-code-placeholder">
             {% if qr_code_base64 %}
-                <div class="qr-code-label">Scan me!</div>
-                <div class="qr-code-display" style="flex-direction: column; align-items: flex-start;">
+                <div class="qr-code-label">Scan Me!</div>
+                <div class="qr-code-display">
                     <div class="qr-code-frame">
-                        <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
+                        <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="Generated QR Code">
                     </div>
-                    <div style="margin-top: 10px; text-align: center; width: 100%;">
-                        <a href="data:image/png;base64,{{ qr_code_base64 }}" download="qrcode.png">Download QR Code</a>
-                    </div>
+                    <a href="data:image/png;base64,{{ qr_code_base64 }}" download="qrcode.png" class="button-download">
+                        Download QR Code (PNG)
+                    </a>
                 </div>
             {% else %}
-                <span>QR code will appear here.</span>
+                <span class="placeholder-text">The generated QR code will appear here.</span>
             {% endif %}
         </div>
     </div>

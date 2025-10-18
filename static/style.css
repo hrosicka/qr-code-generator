@@ -1,85 +1,190 @@
+/* --- Global Styles and Typography --- */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4;
+    /* Clean, light background */
+    background-color: #f5f7fa; 
+    margin: 0;
+    /* Center content vertically and horizontally */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width/height calculations */
+}
+
+/* --- Container and Card Styling --- */
+.container {
+    background-color: #ffffff;
+    padding: 35px;
+    /* Stronger, yet smooth shadow for a modern 'card' look */
+    box-shadow: 0 15px 30px rgba(44, 62, 80, 0.1); 
+    border-radius: 16px;
+    width: 100%;
+    /* Maximum width for a clean desktop layout */
+    max-width: 480px; 
+    transition: all 0.3s ease-in-out;
 }
 
 h1 {
-    text-align: left;
-    margin-bottom: 18px;
+    color: #34495e; /* Dark, professional color */
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px;
-}
-
+/* --- Form Styling --- */
 .qr-form {
     display: flex;
     flex-direction: column;
+    gap: 15px; /* Spacing between elements */
+    margin-bottom: 25px;
 }
 
 .qr-form label {
-    margin-bottom: 5px;
+    font-weight: 600;
+    color: #7f8c8d; /* Subtle label color */
+    font-size: 14px;
+    margin-bottom: 2px;
 }
 
 .qr-form input[type="text"] {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.qr-form button {
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: #fff;
+.qr-form input[type="text"]:focus {
+    border-color: #3498db; /* Blue focus indicator */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* --- Button Styling --- */
+.button-primary {
+    /* Updated: Added subtle gradient for depth */
+    background: linear-gradient(145deg, #3498db, #2980b9); 
+    color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    align-self: flex-end;
+    /* Ensure button is full width for better mobile tap target */
+    width: 100%; 
+    /* Updated: Enhanced shadow for a lifted effect */
+    box-shadow: 0 8px 15px rgba(52, 152, 219, 0.4); 
+    transition: all 0.25s ease; /* Updated: Changed to 'all' for smoother transition */
 }
 
-.qr-form button:hover {
-    background-color: #5d0a60;
+.button-primary:hover {
+    background-color: #2980b9;
+    /* Updated: Change gradient on hover */
+    background: linear-gradient(145deg, #2980b9, #3498db);
+    /* Updated: More prominent lift on hover */
+    transform: translateY(-2px); 
+    box-shadow: 0 12px 20px rgba(52, 152, 219, 0.5); /* Updated: Stronger shadow on hover */
 }
 
-.qr-code-display {
-    text-align: center;
+.button-primary:active {
+    /* Slight press effect */
+    transform: translateY(0); 
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); /* Softer shadow when pressed */
+}
+
+.button-download {
+    display: inline-block;
+    background-color: #2ecc71; /* Green color for download action */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
     margin-top: 20px;
-    display: flex; /* Enable flexbox for label and frame positioning */
-    align-items: center; /* Vertically center label and frame */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(46, 204, 113, 0.3);
 }
 
-.qr-code-display img {
-    display: block;
-    margin: 0 auto;
+.button-download:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
 }
 
+/* --- QR Code Display Area --- */
 .qr-code-placeholder {
-    min-height: 300px;
+    /* Ensure the placeholder area is always centered */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #ecf0f1;
+    min-height: 200px; /* Reduced min-height for better layout */
 }
 
+.placeholder-text {
+    color: #95a5a6;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Main wrapper for the QR image and download link */
+.qr-code-display {
+    /* Set display to column for easy centering of all elements */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between frame and download button */
+}
+
+/* Frame around the QR code */
 .qr-code-frame {
-    border: 2px solid #7e8083;
-    display: inline-block;
-    border-radius: 4px;
-    border-width: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 3px solid #3498db;
+    border-radius: 8px;
+    /* Use a clean shadow to lift the code off the page */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.qr-code-frame img {
+    /* Fixed size for code image */
+    width: 150px; 
+    height: 150px;
+    display: block;
+}
+
+/* "Scan Me!" label styling */
 .qr-code-label {
-    text-align: start;
     font-size: 16px;
-    transform: rotate(-90deg); /* Rotate the text */
-    white-space: nowrap; /* Prevent text wrapping */
-    margin-bottom: 0; /* Remove bottom margin */
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 10px;
+    transform: none; 
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 520px) {
+    .container {
+        /* Full width on very small screens */
+        width: 100%; 
+        border-radius: 0; 
+        box-shadow: none;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    body {
+        align-items: flex-start; 
+    }
 }
