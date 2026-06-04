@@ -21,7 +21,7 @@ def test_homepage_contains_form(page: Page):
     # Navigate to the homepage of the QR code generator
     page.goto(BASE_URL)
     # Check if the title is correct and the form is present
-    assert page.title() == "QR Code Generator"
+    assert page.title() == "Professional QR Code Generator"
     assert page.locator("form input[name='url']").is_visible()
 
 def test_qr_generation(page: Page):
