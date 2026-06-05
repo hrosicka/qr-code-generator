@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import qrcode
 from io import BytesIO
 import base64
+import os
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -50,6 +51,10 @@ def generate_qr_code():
 # --- Application Startup ---
 
 if __name__ == '__main__':
-    # Setting debug to True is useful for development.
-    # Should be set to False in a production environment.
-    app.run(debug=True)
+    # Default to 'production' if FLASK_ENV is not set for security reasons
+    env = os.getenv('FLASK_ENV', 'production')
+    
+    # Enable debug mode only during local development
+    debug_mode = (env == 'development')
+    
+    app.run(debug=debug_mode, host='0.0.0.0')
