@@ -41,16 +41,27 @@ To make sure the user interface works and QR codes are generated correctly, we u
 
 #### How to run Playwright tests
 
-1. Make sure Playwright is installed:
-   ```bash
-   pip install playwright
-   playwright install
-   ```
-2. Start the app (`python main.py`) – it should run in the background.
-3. Run the Playwright tests from the `tests` directory:
-   ```bash
-   pytest tests/
-   ```
+To run the test suite successfully, follow these exact steps:
+
+##### Step 1: Install Dependencies
+Make sure you have both `pytest` and `playwright` installed, along with the required browser binaries:
+```bash
+pip install playwright pytest
+playwright install
+```
+
+##### Step 2: Start the Application
+The web application must be running in the background for the UI tests to connect to it. Start the app in your terminal:
+```bash
+python main.py
+```
+*(Leave this terminal window open so the server keeps running!)*
+
+##### Step 3: Run the Tests
+Open a **new, separate terminal window/tab**, navigate back to your project root directory, and run the tests:
+```bash
+pytest tests/
+```
 
 The tests check that:
 - The application is reachable.
@@ -70,6 +81,3 @@ Lovingly crafted by [Hanka Robovska](https://github.com/hrosicka)
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details. Free to use, modify, and distribute as needed.
-
-
-
