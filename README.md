@@ -1,5 +1,13 @@
 # 🚀 QR Code Generator – Turn Your URLs Into Pixel Art!
 
+
+[![GitHub License](https://img.shields.io/github/license/hrosicka/qr-code-generator)](./LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org)
+[![Framework: Flask](https://img.shields.io/badge/Framework-Flask-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![E2E Tests: Playwright](https://img.shields.io/badge/E2E%20Tests-Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev)
+[![GitHub Stars](https://img.shields.io/github/stars/hrosicka/qr-code-generator)](https://github.com/hrosicka/qr-code-generator/stargazers)
+
+
 Welcome to the digital wizardry workshop, where boring URLs are transformed into mysterious QR glyphs.  
 Just type in your link, press the button, and voilà – your very own QR code is born!  
 This is QR Code Generator, powered by Python, Flask, and a pinch of magic. ✨
